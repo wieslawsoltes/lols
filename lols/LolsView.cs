@@ -29,11 +29,13 @@ public class LolsView : Canvas
 
         foreach (var lol in lols)
         {
-            //Helper.Draw(canvas, paint, lol.Color, lol.Rotation, lol.X, lol.Y);
-            var m = Matrix.CreateRotation(Matrix.ToRadians(lol.Rotation));
-            //using var d = context.PushPostTransform(m);
+            var m = 
+                Matrix.CreateTranslation(-lol.X, -lol.Y)
+                * Matrix.CreateRotation(Matrix.ToRadians(lol.Rotation)) 
+                * Matrix.CreateTranslation(lol.X, lol.Y);
+
+            using var d = context.PushPostTransform(m);
             context.DrawText(lol.Text, new Point(lol.X, lol.Y));
-            Debug.WriteLine($"{lol.X} {lol.Y}");
         }
     }
 
