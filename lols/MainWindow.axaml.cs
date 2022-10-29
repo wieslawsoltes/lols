@@ -66,7 +66,7 @@ public partial class MainWindow : Window
                 count++;
             });
             //NOTE: plain Android we could put 1
-            Thread.Sleep(2);
+            Thread.Sleep(1);
         }
 
         stopwatch.Stop();
