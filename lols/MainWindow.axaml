@@ -2,8 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lols="clr-namespace:lols"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="lols.MainWindow"
+        WindowStartupLocation="CenterScreen"
         Title="lols">
   <Grid>
     <Grid.RowDefinitions>
@@ -13,11 +15,15 @@
     <Grid.ColumnDefinitions>
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
-
+<!--
     <Canvas x:Name="absolute" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
 
     </Canvas>
+-->
+    <lols:LolsView x:Name="absolute" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
 
+    </lols:LolsView>
+    
     <Label
       x:Name="lols"
       Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Padding="7"

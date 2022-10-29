@@ -3,9 +3,12 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Media;
+using Avalonia.Media.Immutable;
 using Avalonia.Threading;
+using Metsys.Bson;
 
 namespace lols;
 
@@ -19,7 +22,13 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+    }
 
+    protected override void OnOpened(EventArgs e)
+    {
+        base.OnOpened(e);
+        
+        
         timer.Elapsed += OnTimer;
 
         stopwatch.Start();
@@ -39,15 +48,20 @@ public partial class MainWindow : Window
     void RunTest()
     {
         var random = Random.Shared;
+        
+        
+        var width = absolute.Bounds.Width;
+        var height = absolute.Bounds.Height;
 
+/*
         while (count < 5000)
         {
             Dispatcher.UIThread.Post(() =>
-            {            
+            {
                 var label = new Label
                 {
                     Content = "lol?",
-                    Foreground = new SolidColorBrush(Color.FromRgb((byte)(random.NextSingle() * 255f), (byte)(random.NextSingle() * 255f), (byte)(random.NextSingle() * 255f))),
+                    Foreground = new ImmutableSolidColorBrush(Color.FromRgb((byte)(random.NextSingle() * 255f), (byte)(random.NextSingle() * 255f), (byte)(random.NextSingle() * 255f))),
                     RenderTransform = new RotateTransform(random.NextDouble() * 360f),
                     Width = 80,
                     Height = 40
@@ -66,6 +80,19 @@ public partial class MainWindow : Window
 
             Thread.Sleep(1);
         }
+*/
+        while (count < 100000)
+        {
+            absolute.AddLol(width, height);
+            Dispatcher.UIThread.Post(() => absolute.InvalidateVisual());
+            count++;
+
+            if (count % 256 == 0)
+            {
+                Thread.Sleep(1);
+            }
+        }
+        
 
         stopwatch.Stop();
         timer.Stop();
