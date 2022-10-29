@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Concurrent;
-using System.Diagnostics;
 using System.Globalization;
 using Avalonia;
 using Avalonia.Controls;
@@ -20,7 +19,6 @@ public class LolsView : Canvas
             lols.TryDequeue(out _);
         }
         lols.Enqueue(new Lol(width, height));
-        //InvalidateVisual();
     }
 
     public override void Render(DrawingContext context)
