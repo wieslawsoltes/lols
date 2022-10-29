@@ -26,8 +26,7 @@ public partial class MainWindow : Window
         timer.Start();
         _ = Task.Factory.StartNew(RunTest, TaskCreationOptions.LongRunning);
     }
-    
-    
+
     void OnTimer(object? sender, System.Timers.ElapsedEventArgs e)
     {
         double avg = count / stopwatch.Elapsed.TotalSeconds;
@@ -53,8 +52,7 @@ public partial class MainWindow : Window
                     Width = 80,
                     Height = 40
                 };
-                //AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.PositionProportional);
-                //AbsoluteLayout.SetLayoutBounds(label, new Rect(random.NextDouble(), random.NextDouble(), 80, 24));
+
                 var width = absolute.Bounds.Width;
                 var height = absolute.Bounds.Height;
                 
@@ -65,7 +63,7 @@ public partial class MainWindow : Window
                 absolute.Children.Add(label);
                 count++;
             });
-            //NOTE: plain Android we could put 1
+
             Thread.Sleep(1);
         }
 
