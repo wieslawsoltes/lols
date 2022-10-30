@@ -7,12 +7,5 @@
         x:Class="lols.MainWindow"
         WindowStartupLocation="CenterScreen"
         Title="lols">
-  <Grid RowDefinitions="*,55" ColumnDefinitions="*">
-    <lols:LolsView x:Name="absolute" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-    <Label
-      x:Name="lols"
-      Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Padding="7"
-      Background="Red" Foreground="White"
-      VerticalAlignment="Center" HorizontalAlignment="Center" Content="LOL/s:" />
-  </Grid>
+  <lols:MainView />
 </Window>

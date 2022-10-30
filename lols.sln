@@ -2,6 +2,17 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols", "lols\lols.csproj", "{92333B7E-D6EC-4B73-BFE2-5BE762C8E648}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{1F484FDC-92FB-41D0-B350-294F67349054}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		global.json = global.json
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.desktop", "lols.desktop\lols.desktop.csproj", "{19503CD7-8B14-4904-BF29-37576CDE5E77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.web", "lols.web\lols.web.csproj", "{87C7FD19-78D3-47B0-9A33-01C4E695E256}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +23,13 @@ Global
 		{92333B7E-D6EC-4B73-BFE2-5BE762C8E648}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92333B7E-D6EC-4B73-BFE2-5BE762C8E648}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92333B7E-D6EC-4B73-BFE2-5BE762C8E648}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19503CD7-8B14-4904-BF29-37576CDE5E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19503CD7-8B14-4904-BF29-37576CDE5E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19503CD7-8B14-4904-BF29-37576CDE5E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19503CD7-8B14-4904-BF29-37576CDE5E77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87C7FD19-78D3-47B0-9A33-01C4E695E256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87C7FD19-78D3-47B0-9A33-01C4E695E256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87C7FD19-78D3-47B0-9A33-01C4E695E256}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87C7FD19-78D3-47B0-9A33-01C4E695E256}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
