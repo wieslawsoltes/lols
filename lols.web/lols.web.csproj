@@ -28,7 +28,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\lols\lols.csproj" />
-    <ProjectReference Include="..\TraceGui.Base\TraceGui.Base.csproj" />
   </ItemGroup>
 
 </Project>
