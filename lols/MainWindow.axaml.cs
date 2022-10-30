@@ -28,7 +28,7 @@ public partial class MainWindow : Window
 
         stopwatch.Start();
         timer.Start();
-        _ = Task.Factory.StartNew(RunTest, TaskCreationOptions.LongRunning);
+        _ = Task.Run(RunTest);
     }
 
     void OnTimer(object? sender, System.Timers.ElapsedEventArgs e)
@@ -40,7 +40,7 @@ public partial class MainWindow : Window
 
     void UpdateText(string text) => lols.Content = text;
 
-    void RunTest()
+    async void RunTest()
     {
         var random = Random.Shared;
         var width = absolute.Bounds.Width;
@@ -54,7 +54,9 @@ public partial class MainWindow : Window
 
             if (count % 256 == 0)
             {
-                Thread.Sleep(1);
+                var tcs = new TaskCompletionSource();
+                Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a).SetResult(), tcs, DispatcherPriority.MinValue);
+                await Task.WhenAll(Task.Delay(1), tcs.Task);
             }
         }
 
