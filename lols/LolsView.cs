@@ -31,6 +31,7 @@ public class LolsView : Control
         lol.X = random.NextDouble() * width;
         lol.Y = random.NextDouble() * height;
         lol.Foreground = new ImmutableSolidColorBrush(Color.FromRgb(rgb[0], rgb[1], rgb[2]));
+        lol.EmSize = 14f;
         lol.Text = "lol?";
 
         _surface.Drawables.Enqueue(lol);
