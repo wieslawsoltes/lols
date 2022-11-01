@@ -1,7 +1,7 @@
 using System.Collections.Concurrent;
 using Avalonia.Media;
 
-namespace Avalonia.Lightspeed;
+namespace Lightspeed;
 
 public class SurfaceDrawable : Drawable
 {

@@ -1,8 +1,8 @@
 using System;
 using Avalonia.Controls;
-using Avalonia.Lightspeed;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
+using Lightspeed;
 
 namespace lols;
 

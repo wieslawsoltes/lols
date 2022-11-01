@@ -4,7 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Immutable;
 
-namespace Avalonia.Lightspeed;
+namespace Lightspeed;
 
 public abstract class Drawable
 {

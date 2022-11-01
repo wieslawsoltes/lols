@@ -1,7 +1,8 @@
 using System.Globalization;
+using Avalonia;
 using Avalonia.Media;
 
-namespace Avalonia.Lightspeed;
+namespace Lightspeed;
 
 public class TextDrawable : Drawable
 {
