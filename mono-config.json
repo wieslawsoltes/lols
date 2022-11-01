@@ -17,6 +17,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "Avalonia.Lightspeed.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "Avalonia.Markup.dll"
     },
     {
