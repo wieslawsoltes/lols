@@ -33,6 +33,7 @@ public class LolsView : Control
         lol.Foreground = new ImmutableSolidColorBrush(Color.FromRgb(rgb[0], rgb[1], rgb[2]));
         lol.EmSize = 14f;
         lol.Text = "lol?";
+        lol.Invalidate();
 
         _surface.Drawables.Enqueue(lol);
     }
