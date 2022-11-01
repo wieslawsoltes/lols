@@ -7,6 +7,6 @@
 
   <!-- Avalonia Themes -->
 
-<!--  <assembly fullname="Avalonia.Themes.Fluent" preserve="All" />-->
+  <!--<assembly fullname="Avalonia.Themes.Fluent" preserve="All" />-->
 
 </linker>
