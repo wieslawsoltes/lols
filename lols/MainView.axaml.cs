@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -42,7 +43,15 @@ public class MainView : UserControl
 
         stopwatch.Start();
         timer.Start();
-        _ = Task.Run(RunTest);
+        
+        if (OperatingSystem.IsBrowser())
+        {
+            _ = Task.Run(RunTest);
+        }
+        else
+        {
+            _ = Task.Factory.StartNew(RunTest, TaskCreationOptions.LongRunning);
+        }
     }
 
     void OnTimer(object? sender, System.Timers.ElapsedEventArgs e)
@@ -78,9 +87,16 @@ public class MainView : UserControl
 
             if (_count % 256 == 0)
             {
-                var tcs = new TaskCompletionSource();
-                Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a!).SetResult(), tcs, DispatcherPriority.MinValue);
-                await Task.WhenAll(Task.Delay(1), tcs.Task);
+                if (OperatingSystem.IsBrowser())
+                {
+                    var tcs = new TaskCompletionSource();
+                    Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a!).SetResult(), tcs, DispatcherPriority.MinValue);
+                    await Task.WhenAll(Task.Delay(1), tcs.Task);
+                }
+                else
+                {
+                    Thread.Sleep(1);
+                }
             }
         }
 
