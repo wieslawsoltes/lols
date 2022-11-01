@@ -27,9 +27,9 @@ public class TextDrawable : Drawable
                 CultureInfo.InvariantCulture,
                 FlowDirection.LeftToRight,
                 Typeface.Default,
-                14f,
+                EmSize,
                 Foreground);
-
+ 
             _matrix =
                 Matrix.CreateTranslation(-X, -Y)
                 * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
