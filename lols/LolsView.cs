@@ -8,7 +8,7 @@ namespace lols;
 
 public class LolsView : Control
 {
-    private SurfaceDrawable _surface = new ();
+    private readonly SurfaceDrawable _surface = new ();
 
     public void AddLol(double width, double height)
     {
