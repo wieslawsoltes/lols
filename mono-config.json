@@ -13,10 +13,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "Avalonia.Dialogs.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "Avalonia.Markup.dll"
     },
     {
@@ -30,10 +26,6 @@
     {
       "behavior": "assembly",
       "name": "Avalonia.Skia.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Avalonia.Themes.Fluent.dll"
     },
     {
       "behavior": "assembly",
@@ -69,14 +61,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Collections.Specialized.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.ComponentModel.Annotations.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.ComponentModel.dll"
     },
     {
@@ -93,10 +77,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Diagnostics.TraceSource.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.dll"
     },
     {
@@ -106,10 +86,6 @@
     {
       "behavior": "assembly",
       "name": "System.Linq.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Linq.Expressions.dll"
     },
     {
       "behavior": "assembly",
