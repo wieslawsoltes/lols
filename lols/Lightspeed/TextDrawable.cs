@@ -30,13 +30,31 @@ public class TextDrawable : Drawable
                 EmSize,
                 Foreground);
 
-            _matrix =
-                Matrix.CreateTranslation(-X, -Y)
-                * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
-                * Matrix.CreateTranslation(X, Y);
+            _matrix = Matrix.CreateTranslation(-X, -Y)
+                      * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
+                      * Matrix.CreateTranslation(X, Y);
         }
 
         using var d = context.PushPostTransform(_matrix);
         context.DrawText(_formattedText, new Point(X, Y));
+    }
+
+    public void Invalidate()
+    {
+        if (_formattedText is null)
+        {
+            return;
+        }
+        
+        if (Foreground is { })
+        {
+            _formattedText.SetForegroundBrush(Foreground);
+        }
+
+        _formattedText.SetFontSize(EmSize);
+/*
+        _matrix = Matrix.CreateTranslation(-X, -Y)
+                  * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
+                  * Matrix.CreateTranslation(X, Y);*/
     }
 }
