@@ -52,9 +52,9 @@ public class TextDrawable : Drawable
         }
 
         _formattedText.SetFontSize(EmSize);
-/*
+
         _matrix = Matrix.CreateTranslation(-X, -Y)
                   * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
-                  * Matrix.CreateTranslation(X, Y);*/
+                  * Matrix.CreateTranslation(X, Y);
     }
 }
