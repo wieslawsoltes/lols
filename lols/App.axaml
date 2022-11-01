@@ -2,6 +2,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="lols.App">
   <Application.Styles>
-    <FluentTheme Mode="Light" />
+    <!-- <FluentTheme Mode="Light" /> -->
+    <Style Selector=":is(UserControl)">
+      <Style.Resources>
+        <ControlTheme x:Key="FluentUserControl" TargetType="UserControl">
+          <Setter Property="Template">
+            <ControlTemplate>
+              <ContentPresenter Name="PART_ContentPresenter"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="{TemplateBinding CornerRadius}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                Content="{TemplateBinding Content}"
+                                Padding="{TemplateBinding Padding}"
+                                VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+            </ControlTemplate>
+          </Setter>
+        </ControlTheme>
+      </Style.Resources>
+      <Setter Property="Theme" Value="{StaticResource FluentUserControl}" />
+    </Style>
   </Application.Styles>
+  <Application.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceInclude Source="/Theme/Window.axaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Application.Resources>
 </Application>

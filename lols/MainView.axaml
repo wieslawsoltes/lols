@@ -9,12 +9,11 @@
   <Grid RowDefinitions="*,55" ColumnDefinitions="*">
     <lols:LolsView Name="absolute" 
                    Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
-    <Label Name="lols" 
-           Grid.Row="0" Grid.Column="0" 
-           Margin="0,20,0,0" Padding="7"
-           Background="Red" Foreground="White"
-           VerticalAlignment="Center" HorizontalAlignment="Center" 
-           Content="LOL/s:" />
+    <TextBlock Name="lols" 
+               Grid.Row="0" Grid.Column="0" 
+               Margin="0,20,0,0" Padding="7"
+               Background="Red" Foreground="White"
+               VerticalAlignment="Center" HorizontalAlignment="Center" 
+               Text="LOL/s:" />
   </Grid>
 </UserControl>
-

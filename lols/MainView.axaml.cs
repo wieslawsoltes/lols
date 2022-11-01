@@ -2,28 +2,26 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading.Tasks;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 
 namespace lols;
 
-public partial class MainView : UserControl
+public class MainView : UserControl
 {
-    const int Max = 500;
-    int count = 0;
-    readonly System.Timers.Timer timer = new System.Timers.Timer(500);
-    readonly Stopwatch stopwatch = new Stopwatch();
+    private int _count;
+    readonly System.Timers.Timer timer = new (500);
+    readonly Stopwatch stopwatch = new ();
     private readonly LolsView? absolute;
-    private readonly Label? lols;
+    private readonly TextBlock? lols;
 
     public MainView()
     {
         InitializeComponent();
-        
+
         absolute = this.FindControl<LolsView>("absolute");
-        lols = this.FindControl<Label>("lols");
+        lols = this.FindControl<TextBlock>("lols");
     }
 
     private void InitializeComponent()
@@ -49,29 +47,39 @@ public partial class MainView : UserControl
 
     void OnTimer(object? sender, System.Timers.ElapsedEventArgs e)
     {
-        double avg = count / stopwatch.Elapsed.TotalSeconds;
+        double avg = _count / stopwatch.Elapsed.TotalSeconds;
         string text = "LOL/s: " + avg.ToString("0.00", CultureInfo.InvariantCulture);
         Dispatcher.UIThread.Post(() => UpdateText(text));
     }
 
-    void UpdateText(string text) => lols.Content = text;
+    void UpdateText(string text)
+    {
+        if (lols is { })
+        {
+            lols.Text = text;
+        }
+    }
 
     async void RunTest()
     {
-        var random = Random.Shared;
+        if (absolute is null)
+        {
+            return;
+        }
+
         var width = absolute.Bounds.Width;
         var height = absolute.Bounds.Height;
 
-        while (count < 100000)
+        while (_count < 100000)
         {
             absolute.AddLol(width, height);
             Dispatcher.UIThread.Post(() => absolute.InvalidateVisual());
-            count++;
+            _count++;
 
-            if (count % 256 == 0)
+            if (_count % 256 == 0)
             {
                 var tcs = new TaskCompletionSource();
-                Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a).SetResult(), tcs, DispatcherPriority.MinValue);
+                Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a!).SetResult(), tcs, DispatcherPriority.MinValue);
                 await Task.WhenAll(Task.Delay(1), tcs.Task);
             }
         }
@@ -80,4 +88,3 @@ public partial class MainView : UserControl
         timer.Stop();
     }
 }
-
