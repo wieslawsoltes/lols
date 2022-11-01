@@ -16,11 +16,13 @@ public class MainView : UserControl
     readonly Stopwatch stopwatch = new ();
     private readonly LolsView? absolute;
     private readonly TextBlock? lols;
+    private readonly bool _isBrowser;
 
     public MainView()
     {
         InitializeComponent();
 
+        _isBrowser = OperatingSystem.IsBrowser();
         absolute = this.FindControl<LolsView>("absolute");
         lols = this.FindControl<TextBlock>("lols");
     }
@@ -44,7 +46,7 @@ public class MainView : UserControl
         stopwatch.Start();
         timer.Start();
         
-        if (OperatingSystem.IsBrowser())
+        if (_isBrowser)
         {
             _ = Task.Run(RunTest);
         }
@@ -87,7 +89,7 @@ public class MainView : UserControl
 
             if (_count % 256 == 0)
             {
-                if (OperatingSystem.IsBrowser())
+                if (_isBrowser)
                 {
                     var tcs = new TaskCompletionSource();
                     Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a!).SetResult(), tcs, DispatcherPriority.MinValue);
