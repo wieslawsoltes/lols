@@ -29,6 +29,27 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
+          <ControlTheme x:Key="{x:Type EmbeddableControlRoot}" TargetType="EmbeddableControlRoot">
+            <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}"/>
+            <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}"/>
+            <Setter Property="Template">
+              <ControlTemplate>
+                <Panel>
+                  <Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
+                  <Border Background="{TemplateBinding Background}">
+                    <VisualLayerManager>
+                      <ContentPresenter Name="PART_ContentPresenter"
+                                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                                        Content="{TemplateBinding Content}"
+                                        Margin="{TemplateBinding Padding}"/>
+                    </VisualLayerManager>
+                  </Border>
+                </Panel>
+              </ControlTemplate>
+            </Setter>
+          </ControlTheme>
+        </ResourceDictionary>
+        <ResourceDictionary>
           <ControlTheme x:Key="{x:Type Window}" TargetType="Window">
             <Setter Property="Background" Value="{DynamicResource SystemControlBackgroundAltHighBrush}"/>
             <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource SystemControlBackgroundAltHighBrush}" />
