@@ -12,23 +12,26 @@ public class LolsView : Control
 
     public void AddLol(double width, double height)
     {
+        TextDrawable? lol = null;
         if (_surface.Drawables.Count >= 500)
         {
-            _surface.Drawables.TryDequeue(out _);
+            _surface.Drawables.TryDequeue(out var drawable);
+            if (drawable is TextDrawable textDrawable)
+            {
+                lol = textDrawable;
+            }
         }
 
         var random = Random.Shared;
         Span<byte> rgb = stackalloc byte[3];
         random.NextBytes(rgb);
 
-        var lol = new TextDrawable
-        {
-            Rotation = random.NextDouble() * 360d,
-            X = random.NextDouble() * width,
-            Y = random.NextDouble() * height,
-            Foreground = new ImmutableSolidColorBrush(Color.FromRgb(rgb[0], rgb[1], rgb[2])),
-            Text = "lol?"
-        };
+        lol ??= new TextDrawable();
+        lol.Rotation = random.NextDouble() * 360d;
+        lol.X = random.NextDouble() * width;
+        lol.Y = random.NextDouble() * height;
+        lol.Foreground = new ImmutableSolidColorBrush(Color.FromRgb(rgb[0], rgb[1], rgb[2]));
+        lol.Text = "lol?";
 
         _surface.Drawables.Enqueue(lol);
     }
