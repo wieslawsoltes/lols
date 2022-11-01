@@ -12,27 +12,27 @@ public class TextDrawable : Drawable
     public string? Text { get; set; }
 
     public double EmSize { get; set; }
-    
+
     public override void Draw(DrawingContext context)
     {
         if (Text is null)
         {
             return;
         }
-        
+
         if (_formattedText is null)
         {
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.InvariantCulture,
                 FlowDirection.LeftToRight,
-                Typeface.Default, 
+                Typeface.Default,
                 14f,
                 Foreground);
 
-            _matrix = 
+            _matrix =
                 Matrix.CreateTranslation(-X, -Y)
-                * Matrix.CreateRotation(Matrix.ToRadians(Rotation)) 
+                * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
                 * Matrix.CreateTranslation(X, Y);
         }
 
