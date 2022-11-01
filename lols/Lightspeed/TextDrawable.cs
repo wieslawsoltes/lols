@@ -29,7 +29,7 @@ public class TextDrawable : Drawable
                 Typeface.Default,
                 EmSize,
                 Foreground);
- 
+
             _matrix =
                 Matrix.CreateTranslation(-X, -Y)
                 * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
