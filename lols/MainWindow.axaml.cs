@@ -42,7 +42,6 @@ public partial class MainWindow : Window
         var width = canvas.Bounds.Width;
         var height = canvas.Bounds.Height;
 
-
         while (count < 5000)
         {
             Dispatcher.UIThread.Post(() =>
