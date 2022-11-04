@@ -7,4 +7,5 @@
         x:Class="lols.MainWindow"
         Title="lols">
   <lols:MainView />
+  <!-- <lols:FlutterMainView /> -->
 </Window>
