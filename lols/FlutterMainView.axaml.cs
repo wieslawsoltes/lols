@@ -174,13 +174,13 @@ public partial class FlutterMainView : UserControl
         var width = canvas.Bounds.Width;
         var height = canvas.Bounds.Height;
 
-        while (count < 1000000)
+        while (count < 10000000)
         {
             canvas.AddLol(width, height);
             Dispatcher.UIThread.Post(() => canvas.InvalidateVisual());
             count++;
 
-            if (count % 256 == 0)
+            if (count % 32768 == 0)
             {
                 if (_isBrowser)
                 {
