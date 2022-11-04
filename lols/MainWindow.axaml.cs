@@ -34,33 +34,38 @@ public partial class MainWindow : Window
         Dispatcher.UIThread.Post(() => UpdateText(text));
     }
 
-    void UpdateText(string text) => lols.Content = text;
+    void UpdateText(string text) => lols.Text = text;
 
     void RunTest()
     {
         var random = Random.Shared;
+        var width = canvas.Bounds.Width;
+        var height = canvas.Bounds.Height;
+
 
         while (count < 5000)
         {
             Dispatcher.UIThread.Post(() =>
-            {            
-                var label = new Label
+            {
+                var rgb = new byte[3];
+                random.NextBytes(rgb);
+
+                var textBlock = new TextBlock
                 {
-                    Content = "lol?",
-                    Foreground = new SolidColorBrush(Color.FromRgb((byte)(random.NextSingle() * 255f), (byte)(random.NextSingle() * 255f), (byte)(random.NextSingle() * 255f))),
+                    Text = "lol?",
+                    Foreground = new SolidColorBrush(Color.FromRgb(rgb[0], rgb[1], rgb[2])),
                     RenderTransform = new RotateTransform(random.NextDouble() * 360f),
                     Width = 80,
                     Height = 40
                 };
 
-                var width = absolute.Bounds.Width;
-                var height = absolute.Bounds.Height;
-                
-                Canvas.SetLeft(label, random.NextDouble() * width);
-                Canvas.SetTop(label, random.NextDouble() * height);
-                if (absolute.Children.Count >= Max)
-                    absolute.Children.RemoveAt(0);
-                absolute.Children.Add(label);
+                Canvas.SetLeft(textBlock, random.NextDouble() * width);
+                Canvas.SetTop(textBlock, random.NextDouble() * height);
+
+                if (canvas.Children.Count >= Max)
+                    canvas.Children.RemoveAt(0);
+                canvas.Children.Add(textBlock);
+
                 count++;
             });
 

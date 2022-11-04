@@ -14,14 +14,14 @@
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
-    <Canvas x:Name="absolute" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
+    <Canvas x:Name="canvas" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0">
 
     </Canvas>
 
-    <Label
+    <TextBlock
       x:Name="lols"
       Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Padding="7"
       Background="Red" Foreground="White"
-      VerticalAlignment="Center" HorizontalAlignment="Center" Content="LOL/s:" />
+      VerticalAlignment="Center" HorizontalAlignment="Center" Text="LOL/s:" />
   </Grid>
 </Window>
