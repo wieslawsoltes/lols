@@ -6,6 +6,6 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="lols.MainWindow"
         Title="lols">
-  <!-- <lols:MainView /> -->
-  <lols:FlutterMainView />
+  <!--<lols:MainView />-->
+  <lols:FlutterMainView /> 
 </Window>
