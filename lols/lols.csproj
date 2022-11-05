@@ -10,8 +10,13 @@
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <PublishAot>true</PublishAot>
+    <!--<RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>win-arm64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>linux-x64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>linux-arm64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>osx-x64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>osx-arm64</RuntimeIdentifier>-->
     <SelfContained>true</SelfContained>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <StripSymbols>true</StripSymbols>
   </PropertyGroup>
 
