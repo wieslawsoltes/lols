@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <AvaloniaVersion>11.0.0-preview3</AvaloniaVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <PublishAot>true</PublishAot>
+    <!--<RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>win-arm64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>linux-x64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>linux-arm64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>osx-x64</RuntimeIdentifier>-->
+    <!--<RuntimeIdentifier>osx-arm64</RuntimeIdentifier>-->
+    <SelfContained>true</SelfContained>
+    <StripSymbols>true</StripSymbols>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>full</TrimMode>
+    <InvariantGlobalization>true</InvariantGlobalization>
+    <TrimmerRemoveSymbols>true</TrimmerRemoveSymbols>
+    <DebuggerSupport>false</DebuggerSupport>
+    <EnableUnsafeBinaryFormatterSerialization>false</EnableUnsafeBinaryFormatterSerialization>
+    <EnableUnsafeUTF7Encoding>false</EnableUnsafeUTF7Encoding>
+    <EventSourceSupport>false</EventSourceSupport>
+    <MetadataUpdaterSupport>false</MetadataUpdaterSupport>
+    <UseSystemResourceKeys>true</UseSystemResourceKeys>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+    <IncludeSatelliteDllsProjectOutputGroup>false</IncludeSatelliteDllsProjectOutputGroup>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <TrimmerRootDescriptor Include="Roots.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+    <!--<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />-->
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+    <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lols\lols.csproj" />
+  </ItemGroup>
+
+</Project>

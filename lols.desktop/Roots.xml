@@ -3,6 +3,7 @@
   <!-- App -->
 
   <assembly fullname="lols" preserve="All" />
+  <assembly fullname="lols.desktop" preserve="All" />
 
   <!-- Avalonia Themes -->
 

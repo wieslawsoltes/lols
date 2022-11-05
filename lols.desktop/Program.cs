@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace lols;
+namespace lols.desktop;
 
 class Program
 {
