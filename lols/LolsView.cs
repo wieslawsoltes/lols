@@ -13,11 +13,11 @@ public class LolsView : Control
 
     public void AddLol(double width, double height)
     {
-        GlyphRunWidget? lol = null;
+        FormattedTextWidget? lol = null;
         if (_surfaceWidget.Children.Count >= Max)
         {
             _surfaceWidget.Children.TryDequeue(out var drawable);
-            if (drawable is GlyphRunWidget textWidget)
+            if (drawable is FormattedTextWidget textWidget)
             {
                 lol = textWidget;
             }
@@ -27,7 +27,7 @@ public class LolsView : Control
         Span<byte> rgb = stackalloc byte[3];
         random.NextBytes(rgb);
 
-        lol ??= new GlyphRunWidget();
+        lol ??= new FormattedTextWidget();
         lol.Rotation = random.NextDouble() * 360d;
         lol.X = random.NextDouble() * width;
         lol.Y = random.NextDouble() * height;
