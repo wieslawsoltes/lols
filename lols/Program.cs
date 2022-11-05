@@ -21,6 +21,13 @@ class Program
 
     public static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
-            .UsePlatformDetect()
+            //.UsePlatformDetect()
+            .UseWin32()
+            //.UseSkia()
+            .UseDirect2D1()
+            .With(new Win32PlatformOptions()
+            {
+                UseWindowsUIComposition = false
+            })
             .LogToTrace();
 }

@@ -4,6 +4,10 @@
 
   <assembly fullname="lols" preserve="All" />
 
+  <assembly fullname="SharpDX" preserve="All" />
+  <assembly fullname="SharpDX.Direct2D1" preserve="All" />
+  <assembly fullname="SharpDX.DXGI" preserve="All" />
+
   <!-- Avalonia Themes -->
 
   <!--<assembly fullname="Avalonia.Themes.Fluent" preserve="All" />-->
