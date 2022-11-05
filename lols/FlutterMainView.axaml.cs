@@ -236,7 +236,7 @@ public partial class FlutterMainView : UserControl
         var width = canvas.Bounds.Width;
         var height = canvas.Bounds.Height;
 
-        while (count < 15000000)
+        while (count < 30_000_000)
         {
             canvas.AddLol(width, height);
             Dispatcher.UIThread.Post(() => canvas.InvalidateVisual());
