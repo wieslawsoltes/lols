@@ -93,6 +93,68 @@ public class TextDrawable : Drawable
     }
 }
 
+public class TextGlyphDrawable : Drawable
+{
+    private GlyphRun? _glyphRun;
+    private Matrix _rotateMatrix;
+    private Matrix _translateMatrix;
+
+    public string? Text { get; set; }
+
+    public double EmSize { get; set; }
+
+    private GlyphRun GetGlyphRun(string text, Typeface typeface, double fontSize)
+    {
+        var glyphIndices = new ushort[text.Length];
+        var glyphTypeface = typeface.GlyphTypeface;
+
+        for (var i = 0; i < text.Length; i++)
+        {
+            glyphIndices[i] = glyphTypeface.GetGlyph(text[i]);
+        }
+
+        return new GlyphRun(typeface.GlyphTypeface, fontSize, text.ToCharArray(), glyphIndices);
+    }
+    
+    public override void Draw(DrawingContext context)
+    {
+        if (Text is null || Foreground is null)
+        {
+            return;
+        }
+
+        if (_glyphRun is null)
+        {
+            _glyphRun = GetGlyphRun(Text, Typeface.Default, EmSize);
+
+            _translateMatrix = Matrix.CreateTranslation(X, Y);
+ 
+            _rotateMatrix = Matrix.CreateTranslation(-X, -Y)
+                      * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
+                      * Matrix.CreateTranslation(X, Y);
+        }
+
+        using var translate = context.PushPostTransform(_translateMatrix);
+        using var rotate = context.PushPostTransform(_rotateMatrix);
+
+        context.DrawGlyphRun(Foreground, _glyphRun);
+    }
+
+    public void Invalidate()
+    {
+        if (_glyphRun is null)
+        {
+            return;
+        }
+
+        _translateMatrix = Matrix.CreateTranslation(X, Y);
+        
+        _rotateMatrix = Matrix.CreateTranslation(-X, -Y)
+                  * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
+                  * Matrix.CreateTranslation(X, Y);
+    }
+}
+
 public class LolsView : Control
 {
     private readonly SurfaceDrawable _surface = new ();
@@ -100,11 +162,11 @@ public class LolsView : Control
 
     public void AddLol(double width, double height)
     {
-        TextDrawable? lol = null;
+        TextGlyphDrawable? lol = null;
         if (_surface.Drawables.Count >= Max)
         {
             _surface.Drawables.TryDequeue(out var drawable);
-            if (drawable is TextDrawable textDrawable)
+            if (drawable is TextGlyphDrawable textDrawable)
             {
                 lol = textDrawable;
             }
@@ -114,7 +176,7 @@ public class LolsView : Control
         Span<byte> rgb = stackalloc byte[3];
         random.NextBytes(rgb);
 
-        lol ??= new TextDrawable();
+        lol ??= new TextGlyphDrawable();
         lol.Rotation = random.NextDouble() * 360d;
         lol.X = random.NextDouble() * width;
         lol.Y = random.NextDouble() * height;
@@ -174,13 +236,13 @@ public partial class FlutterMainView : UserControl
         var width = canvas.Bounds.Width;
         var height = canvas.Bounds.Height;
 
-        while (count < 10000000)
+        while (count < 15000000)
         {
             canvas.AddLol(width, height);
             Dispatcher.UIThread.Post(() => canvas.InvalidateVisual());
             count++;
 
-            if (count % 524288 == 0)
+            if (count % 1048576 == 0)
             {
                 if (_isBrowser)
                 {
