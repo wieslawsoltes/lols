@@ -10,6 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{DFFF5774
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.desktop", "lols.desktop\lols.desktop.csproj", "{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{727F67DB-5655-40CD-8CA3-43C96C360632}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{676BC86B-4683-42F7-B6A6-033B4806346F}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +31,9 @@ Global
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{92333B7E-D6EC-4B73-BFE2-5BE762C8E648} = {727F67DB-5655-40CD-8CA3-43C96C360632}
+		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E} = {727F67DB-5655-40CD-8CA3-43C96C360632}
 	EndGlobalSection
 EndGlobal
