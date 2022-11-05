@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <PublishAot>false</PublishAot>
+    <PublishAot>true</PublishAot>
     <!--<RuntimeIdentifier>win-x64</RuntimeIdentifier>-->
     <!--<RuntimeIdentifier>win-arm64</RuntimeIdentifier>-->
     <!--<RuntimeIdentifier>linux-x64</RuntimeIdentifier>-->
