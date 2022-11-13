@@ -21,8 +21,8 @@ jobs:
       run: dotnet workload install wasm-tools wasm-experimental
     - name: Build Release desktop
       run: dotnet build lols.desktop/lols.desktop.csproj --configuration Release
-    - name: Build Release web
-      run: dotnet build lols.web/lols.web.csproj --configuration Release
+    - name: Build Release browser
+      run: dotnet build lols.browser/lols.browser.csproj --configuration Release
 
   Build-windows:
     name: Build windows-latest
