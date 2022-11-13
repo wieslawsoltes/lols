@@ -18,11 +18,11 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
     - name: Install workloads
-      run: dotnet workload install wasm-tools wasm-experimental android
-    - name: Build Release
-      run: dotnet build --configuration Release
-    - name: Test Release
-      run: dotnet test --configuration Release
+      run: dotnet workload install wasm-tools wasm-experimental
+    - name: Build desktop
+      run: dotnet build ./lols.dekstop/lols.desktop.csproj --configuration Release
+    - name: Build web
+      run: dotnet build ./lols.web/lols.web.csproj --configuration Release
 
   Build-windows:
     name: Build windows-latest
@@ -35,8 +35,6 @@ jobs:
       run: dotnet workload install wasm-tools wasm-experimental android ios
     - name: Build Release
       run: dotnet build --configuration Release
-    - name: Test Release
-      run: dotnet test --configuration Release
 
   Build-macos:
     name: Build macos-latest
@@ -49,5 +47,3 @@ jobs:
       run: dotnet workload install wasm-tools wasm-experimental android ios
     - name: Build Release
       run: dotnet build --configuration Release
-    - name: Test Release
-      run: dotnet test --configuration Release
