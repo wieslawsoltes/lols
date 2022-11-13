@@ -10,10 +10,18 @@ public class LolsView : Control
 {
     private readonly SurfaceWidget _surfaceWidget = new ();
     const int Max = 500;
+    readonly bool _isBrowser;
 
     private TextWidget CreateTextWidget()
     {
-        return new GlyphRunWidget();
+        return _isBrowser 
+            ? new FormattedTextWidget() 
+            : new GlyphRunWidget();
+    }
+
+    public LolsView()
+    {
+        _isBrowser = OperatingSystem.IsBrowser();
     }
     
     public void AddLol(double width, double height)
