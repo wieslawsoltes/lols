@@ -5,7 +5,7 @@
     <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
     <ProvisioningType>manual</ProvisioningType>
     <Nullable>enable</Nullable>
-    <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+    <RuntimeIdentifier>iossimulator-x64</RuntimeIdentifier>
     <RootNamespace>lols.ios</RootNamespace>
     <UseInterpreter>True</UseInterpreter>
   </PropertyGroup>
