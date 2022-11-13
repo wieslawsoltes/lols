@@ -6,6 +6,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{DFFF5774
 	ProjectSection(SolutionItems) = preProject
 		global.json = global.json
 		NuGet.Config = NuGet.Config
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.desktop", "lols.desktop\lols.desktop.csproj", "{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}"
@@ -16,6 +17,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{676BC86B-4
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.android", "lols.android\lols.android.csproj", "{F99A4BBF-6BD0-485F-9318-595E64BE2004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.ios", "lols.ios\lols.ios.csproj", "{8DF26D45-96D3-469D-A770-6472D76A3148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lols.browser", "lols.browser\lols.browser.csproj", "{0CAA5447-D080-40A0-9DA6-FED5C785600D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,9 +38,24 @@ Global
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F99A4BBF-6BD0-485F-9318-595E64BE2004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F99A4BBF-6BD0-485F-9318-595E64BE2004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F99A4BBF-6BD0-485F-9318-595E64BE2004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F99A4BBF-6BD0-485F-9318-595E64BE2004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DF26D45-96D3-469D-A770-6472D76A3148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DF26D45-96D3-469D-A770-6472D76A3148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DF26D45-96D3-469D-A770-6472D76A3148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DF26D45-96D3-469D-A770-6472D76A3148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CAA5447-D080-40A0-9DA6-FED5C785600D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CAA5447-D080-40A0-9DA6-FED5C785600D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CAA5447-D080-40A0-9DA6-FED5C785600D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CAA5447-D080-40A0-9DA6-FED5C785600D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{92333B7E-D6EC-4B73-BFE2-5BE762C8E648} = {727F67DB-5655-40CD-8CA3-43C96C360632}
 		{B4FC8DCD-CEF3-49E5-92ED-7C7F7FE6490E} = {727F67DB-5655-40CD-8CA3-43C96C360632}
+		{F99A4BBF-6BD0-485F-9318-595E64BE2004} = {727F67DB-5655-40CD-8CA3-43C96C360632}
+		{8DF26D45-96D3-469D-A770-6472D76A3148} = {727F67DB-5655-40CD-8CA3-43C96C360632}
+		{0CAA5447-D080-40A0-9DA6-FED5C785600D} = {727F67DB-5655-40CD-8CA3-43C96C360632}
 	EndGlobalSection
 EndGlobal
