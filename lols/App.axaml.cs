@@ -19,7 +19,7 @@ public partial class App : Application
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime single)
         {
-            single.MainView = new MainView();
+            single.MainView = new FlutterMainView();
         }
 
         base.OnFrameworkInitializationCompleted();
