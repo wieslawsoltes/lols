@@ -4,14 +4,10 @@ using Avalonia.Media;
 
 namespace lols.Widgets;
 
-public class FormattedTextWidget : Widget
+public class FormattedTextWidget : TextWidget
 {
     private FormattedText? _formattedText;
     private Matrix _rotateMatrix;
-
-    public string? Text { get; set; }
-
-    public double EmSize { get; set; }
 
     public override void Draw(DrawingContext context)
     {
@@ -40,7 +36,7 @@ public class FormattedTextWidget : Widget
         context.DrawText(_formattedText, new Point(X, Y));
     }
 
-    public void Invalidate()
+    public override void Invalidate()
     {
         if (_formattedText is null)
         {

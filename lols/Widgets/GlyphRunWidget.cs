@@ -3,15 +3,11 @@ using Avalonia.Media;
 
 namespace lols.Widgets;
 
-public class GlyphRunWidget : Widget
+public class GlyphRunWidget : TextWidget
 {
     private GlyphRun? _glyphRun;
     private Matrix _rotateMatrix;
     private Matrix _translateMatrix;
-
-    public string? Text { get; set; }
-
-    public double EmSize { get; set; }
 
     private GlyphRun GetGlyphRun(string text, Typeface typeface, double fontSize)
     {
@@ -50,7 +46,7 @@ public class GlyphRunWidget : Widget
         context.DrawGlyphRun(Foreground, _glyphRun);
     }
 
-    public void Invalidate()
+    public override void Invalidate()
     {
         if (_glyphRun is null)
         {
