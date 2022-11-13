@@ -63,7 +63,7 @@ public partial class FlutterMainView : UserControl
     {
         var width = canvas.Bounds.Width;
         var height = canvas.Bounds.Height;
-        var step = 1_048_576; //_isBrowser ? 256 : 1_048_576;
+        var step = _isBrowser ? 256 : 1_048_576;
 
         while (count < 30_000_000)
         {
