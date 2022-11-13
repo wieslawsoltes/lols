@@ -11,13 +11,18 @@ public class LolsView : Control
     private readonly SurfaceWidget _surfaceWidget = new ();
     const int Max = 500;
 
+    private TextWidget CreateTextWidget()
+    {
+        return new GlyphRunWidget();
+    }
+    
     public void AddLol(double width, double height)
     {
-        GlyphRunWidget? lol = null;
+        TextWidget? lol = null;
         if (_surfaceWidget.Children.Count >= Max)
         {
             _surfaceWidget.Children.TryDequeue(out var drawable);
-            if (drawable is GlyphRunWidget textWidget)
+            if (drawable is TextWidget textWidget)
             {
                 lol = textWidget;
             }
@@ -27,7 +32,7 @@ public class LolsView : Control
         Span<byte> rgb = stackalloc byte[3];
         random.NextBytes(rgb);
 
-        lol ??= new GlyphRunWidget();
+        lol ??= CreateTextWidget();
         lol.Rotation = random.NextDouble() * 360d;
         lol.X = random.NextDouble() * width;
         lol.Y = random.NextDouble() * height;
