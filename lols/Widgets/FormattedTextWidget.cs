@@ -7,7 +7,7 @@ namespace lols.Widgets;
 public class FormattedTextWidget : Widget
 {
     private FormattedText? _formattedText;
-    private Matrix _matrix;
+    private Matrix _rotateMatrix;
 
     public string? Text { get; set; }
 
@@ -30,12 +30,12 @@ public class FormattedTextWidget : Widget
                 EmSize,
                 Foreground);
 
-            _matrix = Matrix.CreateTranslation(-X, -Y)
+            _rotateMatrix = Matrix.CreateTranslation(-X, -Y)
                       * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
                       * Matrix.CreateTranslation(X, Y);
         }
 
-        using var d = context.PushPostTransform(_matrix);
+        using var d = context.PushPostTransform(_rotateMatrix);
         context.DrawText(_formattedText, new Point(X, Y));
     }
 
@@ -53,7 +53,7 @@ public class FormattedTextWidget : Widget
 
         _formattedText.SetFontSize(EmSize);
 
-        _matrix = Matrix.CreateTranslation(-X, -Y)
+        _rotateMatrix = Matrix.CreateTranslation(-X, -Y)
                   * Matrix.CreateRotation(Matrix.ToRadians(Rotation))
                   * Matrix.CreateTranslation(X, Y);
     }
