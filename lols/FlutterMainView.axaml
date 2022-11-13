@@ -14,6 +14,21 @@
                Background="Red" Foreground="White"
                VerticalAlignment="Center" HorizontalAlignment="Center" 
                Text="LOL/s:" />
+    <TextBlock x:Name="start" 
+               Grid.Row="0" Grid.Column="0" 
+               Margin="0,0,0,0" Padding="7"
+               Foreground="White"
+               VerticalAlignment="Bottom" HorizontalAlignment="Center"
+               Text="Start">
+      <TextBlock.Styles>
+        <Style Selector="TextBlock">
+          <Setter Property="Background" Value="Gray" />
+        </Style>
+        <Style Selector="TextBlock:pointerover">
+          <Setter Property="Background" Value="LightGray" />
+        </Style>
+      </TextBlock.Styles>
+    </TextBlock>
   </Grid>
 </UserControl>
 

@@ -14,19 +14,29 @@ public partial class FlutterMainView : UserControl
     readonly System.Timers.Timer timer = new System.Timers.Timer(500);
     readonly Stopwatch stopwatch = new Stopwatch();
      readonly bool _isBrowser;
+     private bool _started = false;
 
     public FlutterMainView()
     {
         InitializeComponent();
 
         _isBrowser = OperatingSystem.IsBrowser();
+
+        start.PointerPressed += (_, _) =>
+        {
+            if (!_started)
+            {
+                _started = true;
+                Start();
+            }
+        };
     }
 
     protected override void OnLoaded()
     {
         base.OnLoaded();
 
-        Start();
+        // Start();
     }
 
     private void Start()
