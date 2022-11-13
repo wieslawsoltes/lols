@@ -10,13 +10,37 @@ on:
     - main
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    name: Build ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+  Build-ubuntu:
+    name: Build ubuntu-latest
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+    - name: Install workloads
+      run: dotnet workload install wasm-tools wasm-experimental android
+    - name: Build Release
+      run: dotnet build --configuration Release
+    - name: Test Release
+      run: dotnet test --configuration Release
 
+  Build-windows:
+    name: Build windows-latest
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+    - name: Install workloads
+      run: dotnet workload install wasm-tools wasm-experimental android ios
+    - name: Build Release
+      run: dotnet build --configuration Release
+    - name: Test Release
+      run: dotnet test --configuration Release
+
+  Build-macos:
+    name: Build macos-latest
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
