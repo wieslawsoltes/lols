@@ -48,6 +48,7 @@ public partial class FlutterMainView : UserControl
     {
         var width = canvas.Bounds.Width;
         var height = canvas.Bounds.Height;
+        var step = _isBrowser ? 256 : 1048576;
 
         while (count < 30_000_000)
         {
@@ -55,7 +56,7 @@ public partial class FlutterMainView : UserControl
             Dispatcher.UIThread.Post(() => canvas.InvalidateVisual());
             count++;
 
-            if (count % 1048576 == 0)
+            if (count % step == 0)
             {
                 if (_isBrowser)
                 {
