@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0-ios</TargetFramework>
+    <SupportedOSPlatformVersion>15.0</SupportedOSPlatformVersion>
+    <ProvisioningType>manual</ProvisioningType>
+    <Nullable>enable</Nullable>
+    <RuntimeIdentifier>iossimulator-arm64</RuntimeIdentifier>
+    <RootNamespace>lols.ios</RootNamespace>
+    <UseInterpreter>True</UseInterpreter>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia.iOS" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\lols\lols.csproj" />
+  </ItemGroup>
+</Project>
