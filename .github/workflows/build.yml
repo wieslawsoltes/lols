@@ -19,10 +19,10 @@ jobs:
       uses: actions/setup-dotnet@v1
     - name: Install workloads
       run: dotnet workload install wasm-tools wasm-experimental
-    - name: Build desktop
-      run: dotnet build ./lols.dekstop/lols.desktop.csproj --configuration Release
-    - name: Build web
-      run: dotnet build ./lols.web/lols.web.csproj --configuration Release
+    - name: Build Release desktop
+      run: dotnet build lols.desktop/lols.desktop.csproj --configuration Release
+    - name: Build Release web
+      run: dotnet build lols.web/lols.web.csproj --configuration Release
 
   Build-windows:
     name: Build windows-latest
