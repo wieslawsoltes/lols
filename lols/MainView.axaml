@@ -8,7 +8,7 @@
     <Canvas x:Name="canvas" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
     <TextBlock x:Name="lols"
                Grid.Row="0" Grid.Column="0" 
-               Margin="0,20,0,0" Padding="7"
+               Margin="0,0,0,0" Padding="7"
                Background="Red" Foreground="White"
                VerticalAlignment="Center" HorizontalAlignment="Center" 
                Text="LOL/s:" />
