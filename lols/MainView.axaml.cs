@@ -25,6 +25,11 @@ public partial class MainView : UserControl
     {
         base.OnLoaded();
 
+        Start();
+    }
+
+    private void Start()
+    {
         timer.Elapsed += OnTimer;
 
         stopwatch.Start();
