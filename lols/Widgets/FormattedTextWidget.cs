@@ -35,7 +35,8 @@ public class FormattedTextWidget : Widget
                       * Matrix.CreateTranslation(X, Y);
         }
 
-        using var d = context.PushPostTransform(_rotateMatrix);
+        using var rotate = context.PushPostTransform(_rotateMatrix);
+
         context.DrawText(_formattedText, new Point(X, Y));
     }
 
