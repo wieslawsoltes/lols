@@ -25,13 +25,18 @@ public partial class FlutterMainView : UserControl
     protected override void OnLoaded()
     {
         base.OnLoaded();
-        
+
+        Start();
+    }
+
+    private void Start()
+    {
         timer.Elapsed += OnTimer;
 
         stopwatch.Start();
         timer.Start();
-        _ = _isBrowser 
-            ? Task.Run(RunTest) 
+        _ = _isBrowser
+            ? Task.Run(RunTest)
             : Task.Factory.StartNew(RunTest, TaskCreationOptions.LongRunning);
     }
 
