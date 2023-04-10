@@ -9,6 +9,10 @@
     },
     {
       "behavior": "assembly",
+      "name": "Avalonia.Browser.dll"
+    },
+    {
+      "behavior": "assembly",
       "name": "Avalonia.Controls.dll"
     },
     {
@@ -26,10 +30,6 @@
     {
       "behavior": "assembly",
       "name": "Avalonia.Skia.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "Avalonia.Web.dll"
     },
     {
       "behavior": "assembly",
@@ -57,10 +57,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Collections.NonGeneric.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.ComponentModel.dll"
     },
     {
@@ -85,14 +81,6 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Net.Http.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Net.Primitives.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.ObjectModel.dll"
     },
     {
@@ -105,31 +93,7 @@
     },
     {
       "behavior": "assembly",
-      "name": "System.Private.Xml.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Private.Xml.Linq.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Reactive.dll"
-    },
-    {
-      "behavior": "assembly",
       "name": "System.Runtime.InteropServices.JavaScript.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Runtime.Serialization.Primitives.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Text.RegularExpressions.dll"
-    },
-    {
-      "behavior": "assembly",
-      "name": "System.Xml.Linq.dll"
     },
     {
       "virtualPath": "runtimeconfig.bin",
