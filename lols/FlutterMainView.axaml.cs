@@ -76,7 +76,7 @@ public partial class FlutterMainView : UserControl
                 if (_isBrowser)
                 {
                     var tcs = new TaskCompletionSource();
-                    Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a!).SetResult(), tcs, DispatcherPriority.MinValue);
+                    Dispatcher.UIThread.Post(a => ((TaskCompletionSource)a!).SetResult(), tcs, DispatcherPriority.Background);
                     await Task.WhenAll(Task.Delay(1), tcs.Task);
                 }
                 else
