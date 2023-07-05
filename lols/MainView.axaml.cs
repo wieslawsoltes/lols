@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Threading;
 
@@ -21,9 +22,9 @@ public partial class MainView : UserControl
         InitializeComponent();
     }
 
-    protected override void OnLoaded()
+    protected override void OnLoaded(RoutedEventArgs routedEventArgs)
     {
-        base.OnLoaded();
+        base.OnLoaded(routedEventArgs);
 
         Start();
     }

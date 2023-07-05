@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
 using Avalonia.Threading;
 
 namespace lols;
@@ -32,9 +33,9 @@ public partial class FlutterMainView : UserControl
         };
     }
 
-    protected override void OnLoaded()
+    protected override void OnLoaded(RoutedEventArgs routedEventArgs)
     {
-        base.OnLoaded();
+        base.OnLoaded(routedEventArgs);
 
         // Start();
     }
