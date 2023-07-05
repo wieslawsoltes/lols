@@ -40,8 +40,8 @@ public class GlyphRunWidget : TextWidget
                             * Matrix.CreateTranslation(X, Y);
         }
 
-        using var translate = context.PushPostTransform(_translateMatrix);
-        using var rotate = context.PushPostTransform(_rotateMatrix);
+        using var translate = context.PushTransform(_translateMatrix);
+        using var rotate = context.PushTransform(_rotateMatrix);
 
         context.DrawGlyphRun(Foreground, _glyphRun);
     }
