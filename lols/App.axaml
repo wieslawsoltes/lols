@@ -60,7 +60,7 @@
   
   <Application.Styles>
 
-    <!-- <FluentTheme Mode="Light" /> -->
+    <FluentTheme />
 
     <Style Selector=":is(UserControl)">
       <Style.Resources>

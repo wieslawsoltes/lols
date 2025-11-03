@@ -3,9 +3,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:lols="clr-namespace:lols"
+        xmlns:widgets="clr-namespace:lols.Widgets"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="lols.MainWindow"
         Title="lols">
-  <lols:MainView />
+  <!-- <lols:MainView /> -->
   <!--<lols:FlutterMainView />-->
+  <StackPanel Spacing="10">
+    <TextBox Text="Some sample text" Name="TextBox" />
+    <widgets:FastTextBlock Text="{Binding #TextBox.Text}" />
+  </StackPanel>
 </Window>
